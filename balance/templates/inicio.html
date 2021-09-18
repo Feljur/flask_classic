@@ -1,45 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ titulo }}</title>
+	<title>Balance de Cuentas</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="HandheldFriendly" content="True">
+	<meta http-equiv="x-ua-compatible" content="IE=edge">
+	
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	
 </head>
+
 <body>
-    <header>
-        <p>Inicio de Balance de gastos</p>
-    </header>
-    <section>
-        <nav>
-            Inicio | Nuevo
-        </nav>
-        <h1>Lista de movimientos</h1>
-        <table>
-            <tr>
-                <th>Fecha</th>
-                <th>Concepto</th>
-                <th>I/G</th>
-                <th>Cantidad</th>
-            </tr>
-            {% for item in items %}
-            <tr>
-                <td>{{ item.fecha }}</td>
-                <td>{{ item.concepto }}</td>
-                <td>
-                    {% if item.ingreso_gasto == 'I' %}
-                        Ingreso
-                    {% else %}
-                        Gasto
-                    {% endif %}
-                </td>
-                <td>{{ item.cantidad }}€</td>
-            </tr>
-            {% endfor %}
-        </table>
-    </section>
-    <footer>
-        &copy; 2021 - Todos los derechos reservados
-    </footer>
+
+	<div id="main">
+
+
+		<div id="page" class="fixed-navbar">
+
+			<div class="top-navbar">
+				
+				<div class="container">
+					<div class="row">
+						<div class="col s12">
+				
+							<div class="front-navigation">
+								<div class="site-title">
+									<h1><span>Felipe</span>Jurado</h1>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+			<div class="content-container no-padding-top">
+
+				<!-- Title & meta -->
+				<div class="container animated fadeInRight">
+					<div class="row">
+						<div class="col s12">
+
+							<div class="blog-inside-header">
+								<div class="blog-header">
+									<div class="entry-cat">
+										<a href="#!">Inicio</a> | <a href="#!">Nuevo</a>
+									</div>
+									<h2 class="entry-title">
+										Listado de Movimientos
+									</h2>
+									<div class="entry-meta">
+										<span class="meta">
+											<span class="icon ti-time"></span> {{ fecha_hoy }}
+										</span>
+									</div>
+									<div class="entry-thumb">
+										<img src="{{ url_for('static', filename='img/kakebo.jpg') }}">
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+				<div class="animated fadeInUp">
+
+					<div class="container">
+						<div class="row no-mb">
+							<div class="col s12">
+					
+								<div class="blog">
+
+									<div class="entry-content">
+										<p>Cras mollis eros ac magna scelerisque consectetur. Aliquam quis tempor turpis. Phasellus gravida sem lectus, id elementum metus lobortis eu.</p>
+										
+										<div class="home-widget no-mb">
+											<table class="mb-4">
+												<thead>
+													<tr>
+														<th data-field="id">Fecha</th>
+														<th data-field="name">Concepto</th>
+														<th data-field="price">Ingreso / Gasto</th>
+														<th data-field="price">Cantidad</th>
+													</tr>
+												</thead>
+		
+												<tbody>
+													{% for item in items %}
+                                                    <tr>
+                                                        <td>{{ item.fecha }}</td>
+                                                        <td>{{ item.concepto }}</td>
+                                                        <td>
+                                                            {% if item.ingreso_gasto == 'I' %}
+                                                                Ingreso
+                                                            {% else %}
+                                                                Gasto
+                                                            {% endif %}
+                                                        </td>
+                                                        <td>{{ item.cantidad }}€</td>
+                                                    </tr>
+                                                    {% endfor %}
+												</tbody>
+											</table>
+										</div>
+										<blockquote>
+											Versión de lectura de fichero CSV.
+										</blockquote>
+										
+										<p></p>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+
+			<div class="footer">
+				
+				<div class="ft-header">
+					<h2 class="title"><span>Felipe</span>Jurado</h2>
+					<p class="desc">Trabajo de prueba Bootcamp Keepcoding</p>
+					<div class="socmed mt-3">
+						<a href="https://www.felipejurado.com" target="_blank"><i class="fa fa-globe"></i></a>
+						<a href="https://twitter.com/felipejjurado" target="_blank"><i class="fa fa-twitter"></i></a>
+					</div>
+				</div>
+
+				<div class="copyright">
+					<span>&copy; 2021 Felipe Jurado</span>
+				</div>
+
+			</div>
+
+			<div id="to-top" class="main-bg">
+				<span class="ti-arrow-up"></span>
+			</div> 
+
+		</div>
+
+	</div>
+
 </body>
 </html>
